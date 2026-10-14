@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rifal Withlove | NDIS Support Services, Opening Soon</title>
-<meta name="description" content="Rifal Withlove is a new NDIS support provider offering daily living support, community access, transport, and supported accommodation and respite. Opening soon.">
+<meta name="description" content="Rifal Withlove is a new NDIS support provider offering daily living support, community access, transport, and supported accommodation and respite. Opening soon. Register your interest.">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
+<meta property="og:title" content="Rifal Withlove | NDIS support, opening soon">
+<meta property="og:description" content="Daily living, community access, transport, and accommodation and respite. Register your interest.">
 <meta property="og:image" content="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,17 +16,20 @@
 <style>
   :root {
     --navy: #123e5c;
+    --navy-deep: #0c2d44;
     --ocean: #1f6f8b;
+    --sky: #4fb0c6;
     --leaf: #5fa8a0;
+    --leaf-soft: #d5ebe6;
     --mist: #eef5f3;
+    --sand: #f7f3ec;
     --white: #ffffff;
     --text-soft: #3f5868;
     --rule: #cfe0dc;
-    --wrap: 1120px;
+    --wrap: 1160px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     margin: 0;
     background: var(--white);
@@ -32,6 +37,7 @@
     font-family: "Atkinson Hyperlegible", Verdana, system-ui, sans-serif;
     font-size: 1.125rem;
     line-height: 1.6;
+    overflow-x: hidden;
   }
   h1, h2, h3 {
     font-family: "Young Serif", Georgia, "Times New Roman", serif;
@@ -41,104 +47,220 @@
   }
   p { margin: 0; }
   a { color: var(--ocean); }
-  :focus-visible { outline: 3px solid var(--ocean); outline-offset: 3px; border-radius: 4px; }
+  img, svg { max-width: 100%; }
+  :focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
   .wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: 24px; }
   .skip {
-    position: absolute; left: -999px; top: 8px; z-index: 10;
+    position: absolute; left: -999px; top: 8px; z-index: 20;
     background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 6px;
   }
   .skip:focus { left: 8px; }
+  .head { max-width: 38em; margin-bottom: 48px; }
+  .head h2 { font-size: clamp(2rem, 4vw, 3rem); }
+  .head p { color: var(--text-soft); margin-top: 14px; font-size: 1.2rem; }
 
   /* Header */
-  .site-header { padding-block: 20px; }
+  .site-header { position: relative; z-index: 5; padding-block: 18px; }
   .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--navy); }
   .brand img { width: 52px; height: 52px; }
   .brand span { font-family: "Young Serif", Georgia, serif; font-size: 1.45rem; }
-  .site-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px 26px; flex-wrap: wrap; }
+  .site-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 6px 26px; flex-wrap: wrap; }
   .site-header nav a { color: var(--navy); text-decoration: none; padding-block: 6px; border-bottom: 2px solid transparent; }
   .site-header nav a:hover { border-bottom-color: var(--leaf); }
+  .site-header nav a.nav-cta { background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 999px; border: 0; }
+  .site-header nav a.nav-cta:hover { background: var(--ocean); }
 
   /* Hero */
-  .hero { padding-block: 40px 88px; }
-  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 56px; align-items: center; }
-  .status { display: flex; align-items: flex-start; gap: 12px; color: var(--ocean); font-weight: 700; margin-bottom: 22px; }
-  .status::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--leaf); box-shadow: 0 0 0 5px var(--mist); margin-top: .45em; }
-  .hero h1 { font-size: clamp(2.4rem, 5.2vw, 3.9rem); letter-spacing: -.01em; max-width: 13em; }
-  .hero .lead { font-size: 1.25rem; color: var(--text-soft); margin-top: 24px; max-width: 32em; }
+  .hero { position: relative; padding-block: 32px 96px; }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: center; }
+  .status {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--mist); color: var(--navy); font-weight: 700;
+    padding: 8px 18px 8px 12px; border-radius: 999px; margin-bottom: 26px;
+  }
+  .status::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--leaf); box-shadow: 0 0 0 4px var(--leaf-soft); }
+  .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.3rem); letter-spacing: -.015em; }
+  .hero .lead { font-size: 1.25rem; color: var(--text-soft); margin-top: 24px; max-width: 31em; }
   .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
   .btn {
-    display: inline-block; text-decoration: none; font-weight: 700;
-    padding: 15px 28px; border-radius: 10px; border: 2px solid var(--ocean);
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    text-decoration: none; font: inherit; font-weight: 700; cursor: pointer;
+    padding: 15px 28px; border-radius: 999px; border: 2px solid var(--ocean);
   }
   .btn-main { background: var(--ocean); color: #fff; }
   .btn-main:hover { background: var(--navy); border-color: var(--navy); }
   .btn-plain { color: var(--ocean); background: transparent; }
   .btn-plain:hover { background: var(--mist); }
 
-  .mark { position: relative; justify-self: center; width: 100%; max-width: 460px; }
-  .mark svg { position: absolute; inset: -6% -10% -4% -6%; width: 116%; height: 110%; }
-  .mark img { position: relative; display: block; width: 100%; height: auto; }
+  .quick { list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .quick a {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--navy);
+    border: 1px solid var(--rule); border-radius: 999px; padding: 7px 16px 7px 10px; font-size: 1rem; background: #fff;
+  }
+  .quick a:hover { border-color: var(--leaf); background: var(--mist); }
+  .quick svg { width: 22px; height: 22px; }
+
+  .stage { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 540px; justify-self: center; }
+  .stage .leaf { position: absolute; transform-origin: 20% 90%; }
+  .leaf-a { inset: 2% 0 0 8%; }
+  .leaf-b { width: 46%; left: -6%; bottom: -2%; }
+  .leaf-c { width: 30%; right: -2%; top: -4%; }
+  .stage .disc {
+    position: absolute; inset: 15% 12% 13% 16%; border-radius: 50%; background: #fff;
+    box-shadow: 0 30px 60px -30px rgba(18, 62, 92, .35);
+    display: grid; place-items: center;
+  }
+  .stage .disc img { width: 78%; height: auto; }
+  .stage .heart { position: absolute; width: 12%; right: 9%; bottom: 16%; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+    .leaf-a { animation: grow 1.1s cubic-bezier(.2,.8,.2,1) both; }
+    .leaf-b { animation: grow 1.1s .25s cubic-bezier(.2,.8,.2,1) both; }
+    .leaf-c { animation: grow 1.1s .4s cubic-bezier(.2,.8,.2,1) both; }
+    .stage .disc { animation: rise .9s .15s cubic-bezier(.2,.8,.2,1) both; }
+    .stage .heart { animation: float 1s .9s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes grow { from { transform: scale(.4) rotate(-12deg); opacity: 0; } }
+    @keyframes rise { from { transform: translateY(24px); opacity: 0; } }
+    @keyframes float { from { transform: translateY(30px) scale(.5); opacity: 0; } }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
   /* Services */
-  .services { background: var(--mist); padding-block: 88px; }
-  .head { max-width: 40em; margin-bottom: 48px; }
-  .head h2 { font-size: clamp(2rem, 3.6vw, 2.75rem); }
-  .head p { color: var(--text-soft); margin-top: 14px; font-size: 1.2rem; }
-  .service-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--navy); }
-  .service {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 1fr);
-    gap: 16px 40px; padding-block: 32px; border-bottom: 1px solid var(--rule);
+  .services { background: var(--sand); padding-block: 96px; }
+  .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .panel {
+    position: relative; overflow: hidden; border-radius: 28px; padding: 36px 36px 40px;
+    display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 8px 24px; align-items: start;
   }
-  .service h3 { font-size: 1.6rem; display: flex; gap: 14px; align-items: baseline; }
-  .service h3::before {
-    content: ""; flex: none; width: 14px; height: 20px; background: var(--leaf);
-    border-radius: 0 100% 0 100%; transform: translateY(2px);
-  }
-  .service .what { font-size: 1.15rem; }
-  .service ul { margin: 0; padding: 0; list-style: none; color: var(--text-soft); }
-  .service li + li { margin-top: 4px; }
-  .service li::before { content: "– "; color: var(--leaf); }
+  .panel.p1 { background: #fff; }
+  .panel.p2 { background: var(--leaf-soft); }
+  .panel.p3 { background: var(--mist); border: 1px solid var(--rule); }
+  .panel.p4 { background: var(--navy); color: #fff; }
+  .panel.p4 .what, .panel.p4 li { color: #d6e6ea; }
+  .panel h3 { font-size: 1.85rem; }
+  .panel .what { font-size: 1.15rem; margin-top: 10px; color: var(--text-soft); }
+  .panel .art { grid-row: span 2; width: 150px; height: auto; }
+  .panel ul { grid-column: 1 / -1; list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .panel li { font-size: 1rem; padding: 6px 14px; border-radius: 999px; background: rgba(18, 62, 92, .07); color: var(--navy); }
+  .panel.p4 li { background: rgba(255, 255, 255, .12); }
+
+  /* Promise */
+  .promise { position: relative; background: var(--navy-deep); color: #fff; padding-block: 104px; overflow: hidden; }
+  .promise .wrap { position: relative; display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 32px; align-items: start; }
+  .promise blockquote { margin: 0; }
+  .promise blockquote p { font-family: "Young Serif", Georgia, serif; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.3; max-width: 24em; }
+  .promise footer { margin-top: 28px; color: #a9cdd0; font-size: 1.1rem; }
+  .promise .heart-big { width: 80px; height: auto; }
+  .promise .bg-leaf { position: absolute; width: 520px; right: -140px; bottom: -180px; opacity: .14; }
 
   /* Steps */
-  .steps-section { padding-block: 88px; }
-  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; counter-reset: step; }
-  .steps li { counter-increment: step; }
+  .steps-section { padding-block: 96px; }
+  .steps { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; counter-reset: step; }
+  .steps::before {
+    content: ""; position: absolute; top: 31px; left: 32px; right: 12%; height: 2px;
+    background: repeating-linear-gradient(90deg, var(--leaf) 0 10px, transparent 10px 18px);
+  }
+  .steps li { position: relative; counter-increment: step; }
   .steps li::before {
     content: counter(step);
-    display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
-    border: 2px solid var(--leaf); color: var(--navy);
-    font-family: "Young Serif", Georgia, serif; font-size: 1.4rem; margin-bottom: 18px;
+    display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--leaf); color: var(--navy);
+    font-family: "Young Serif", Georgia, serif; font-size: 1.6rem; margin-bottom: 20px;
+    position: relative;
   }
-  .steps h3 { font-size: 1.35rem; margin-bottom: 8px; }
+  .steps li:last-child::before { background: var(--leaf); color: #fff; }
+  .steps h3 { font-size: 1.4rem; margin-bottom: 8px; }
   .steps p { color: var(--text-soft); }
 
+  /* FAQ */
+  .faq { background: var(--mist); padding-block: 96px; }
+  .faq .wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; align-items: start; }
+  .faq .head { margin-bottom: 0; }
+  .faq-list details { background: #fff; border-radius: 18px; margin-bottom: 12px; border: 1px solid var(--rule); }
+  .faq-list summary {
+    list-style: none; cursor: pointer; padding: 20px 60px 20px 24px; position: relative;
+    font-weight: 700; font-size: 1.15rem;
+  }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after {
+    content: ""; position: absolute; right: 24px; top: 50%; width: 12px; height: 12px; margin-top: -8px;
+    border-right: 2.5px solid var(--ocean); border-bottom: 2.5px solid var(--ocean); transform: rotate(45deg);
+    transition: transform .2s;
+  }
+  .faq-list details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+  .faq-list details p { padding: 0 24px 22px; color: var(--text-soft); }
+
   /* Contact */
-  .contact { background: var(--navy); color: #fff; padding-block: 88px; }
-  .contact .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
-  .contact h2 { font-size: clamp(2rem, 3.6vw, 2.75rem); }
-  .contact .intro { margin-top: 16px; font-size: 1.2rem; color: #d6e6ea; max-width: 30em; }
-  .details { margin: 0; border-top: 1px solid rgba(255,255,255,.25); }
-  .details div { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 4px 16px; padding-block: 18px; border-bottom: 1px solid rgba(255,255,255,.25); }
-  .details dt { color: #a9cdd0; }
-  .details dd { margin: 0; font-weight: 700; font-size: 1.2rem; overflow-wrap: anywhere; }
+  .contact { padding-block: 96px; }
+  .contact .wrap { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 56px; align-items: start; }
+  .details { margin: 32px 0 0; }
+  .details div { display: flex; gap: 16px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+  .details div:first-child { border-top: 1px solid var(--rule); }
+  .details .ico { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--mist); display: grid; place-items: center; }
+  .details .ico svg { width: 22px; height: 22px; fill: none; stroke: var(--ocean); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .details .k { font-size: .95rem; color: var(--text-soft); }
+  .details strong { font-weight: 700; overflow-wrap: anywhere; }
 
-  .site-footer { padding-block: 32px 40px; color: var(--text-soft); font-size: 1rem; }
-  .site-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }
+  .form-card { background: var(--navy); color: #fff; border-radius: 28px; padding: clamp(28px, 4vw, 44px); }
+  .form-card h3 { font-size: 1.8rem; }
+  .form-card > p { color: #d6e6ea; margin-top: 8px; }
+  .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 26px; }
+  .field { display: grid; gap: 6px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label, .field legend { font-weight: 700; font-size: 1rem; }
+  .field .hint { font-weight: 400; color: #a9cdd0; }
+  .field input, .field select, .field textarea {
+    font: inherit; font-size: 1.05rem; color: var(--navy); background: #fff;
+    border: 2px solid transparent; border-radius: 12px; padding: 12px 14px; width: 100%;
+  }
+  .field textarea { min-height: 110px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--sky); }
+  fieldset.field { border: 0; margin: 0; padding: 0; }
+  .checks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .checks label {
+    display: inline-flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;
+    background: rgba(255,255,255,.1); border-radius: 999px; padding: 8px 16px 8px 12px;
+  }
+  .checks input { width: 18px; height: 18px; accent-color: var(--leaf); }
+  .form-card .btn-main { margin-top: 24px; background: var(--leaf); border-color: var(--leaf); color: var(--navy-deep); }
+  .form-card .btn-main:hover { background: #fff; border-color: #fff; }
+  .hidden-field { position: absolute; left: -9999px; }
 
-  @media (max-width: 900px) {
-    .service { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .service h3 { grid-column: 1 / -1; }
+  /* Footer */
+  .site-footer { background: var(--navy-deep); color: #d6e6ea; padding-block: 64px 36px; font-size: 1rem; }
+  .foot-top { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 40px; }
+  .foot-brand { display: flex; align-items: center; gap: 12px; }
+  .foot-brand img { width: 56px; height: 56px; background: #fff; border-radius: 50%; padding: 4px; }
+  .foot-brand span { font-family: "Young Serif", Georgia, serif; font-size: 1.5rem; color: #fff; }
+  .foot-top p { margin-top: 14px; max-width: 26em; }
+  .site-footer h2 { font-family: inherit; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .site-footer a { color: #d6e6ea; }
+  .ack { margin-top: 48px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.15); display: flex; justify-content: space-between; gap: 16px 40px; flex-wrap: wrap; }
+  .ack p { max-width: 52em; color: #a9cdd0; }
+
+  @media (max-width: 960px) {
+    .service-grid { grid-template-columns: minmax(0, 1fr); }
     .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .steps::before { display: none; }
+    .faq .wrap, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
+    .foot-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .foot-top > :first-child { grid-column: 1 / -1; }
   }
   @media (max-width: 760px) {
-    .hero { padding-top: 16px; }
-    .hero .wrap, .contact .wrap { grid-template-columns: minmax(0, 1fr); gap: 36px; }
-    .mark { max-width: 300px; order: -1; }
-    .service { grid-template-columns: minmax(0, 1fr); }
+    .hero { padding-top: 8px; padding-bottom: 72px; }
+    .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .stage { max-width: 340px; order: -1; }
+    .panel { grid-template-columns: minmax(0, 1fr); padding: 28px 24px 30px; }
+    .panel .art { width: 96px; grid-row: 1; }
+    .promise .wrap { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .promise .heart-big { width: 56px; }
     .steps { grid-template-columns: minmax(0, 1fr); }
-    .details div { grid-template-columns: minmax(0, 1fr); }
-    .services, .steps-section, .contact { padding-block: 64px; }
+    .form-grid { grid-template-columns: minmax(0, 1fr); }
+    .services, .steps-section, .faq, .contact, .promise { padding-block: 72px; }
+    .site-header nav a.nav-cta { display: none; }
   }
 </style>
 </head>
@@ -154,99 +276,166 @@
     <nav aria-label="Main">
       <ul>
         <li><a href="#services">Services</a></li>
-        <li><a href="#how">How it will work</a></li>
-        <li><a href="#contact">Contact us</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a class="nav-cta" href="#contact">Register interest</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main id="main">
+  <!-- Hero -->
   <section class="hero" id="top">
     <div class="wrap">
       <div>
-        <p class="status">Opening soon. We're taking expressions of interest now.</p>
+        <p class="status">Opening soon. Taking expressions of interest now.</p>
         <h1>Support at home and in your community, from people who care.</h1>
         <p class="lead">Rifal Withlove is a new NDIS support provider. We help people with disability live the way they choose, with support that fits their plan, their goals and their everyday life.</p>
         <div class="actions">
-          <a class="btn btn-main" href="#contact">Get in touch</a>
+          <a class="btn btn-main" href="#contact">Register your interest</a>
           <a class="btn btn-plain" href="#services">See our services</a>
         </div>
+        <ul class="quick" aria-label="Our services">
+          <li><a href="#daily"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#eef5f3"/><path d="M6.5 12 12 7.5l5.5 4.5v5h-11z" fill="#1f6f8b"/></svg>Daily living</a></li>
+          <li><a href="#community"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#eef5f3"/><circle cx="9" cy="10" r="2.2" fill="#5fa8a0"/><circle cx="15" cy="10" r="2.2" fill="#1f6f8b"/><path d="M5.5 17c.5-2.5 2-3.6 3.5-3.6s3 1.1 3.5 3.6zm6 0c.5-2.5 2-3.6 3.5-3.6s3 1.1 3.5 3.6z" fill="#123e5c"/></svg>Community access</a></li>
+          <li><a href="#transport"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#eef5f3"/><path d="M5.5 15v-2.5l1.6-3.5h9.8l1.6 3.5V15z" fill="#1f6f8b"/><circle cx="8.5" cy="15.5" r="1.6" fill="#123e5c"/><circle cx="15.5" cy="15.5" r="1.6" fill="#123e5c"/></svg>Transport</a></li>
+          <li><a href="#accommodation"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#eef5f3"/><path d="M5.5 16.5v-6m0 3.5h13v2.5m0-2.5v-1.5a2 2 0 0 0-2-2h-5v3.5" stroke="#123e5c" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="8.5" cy="11.8" r="1.4" fill="#5fa8a0"/></svg>Accommodation &amp; respite</a></li>
+        </ul>
       </div>
-      <div class="mark">
-        <svg viewBox="0 0 200 200" aria-hidden="true" preserveAspectRatio="none">
-          <path fill="#eef5f3" d="M18 186C10 110 40 30 120 14c40-8 66 4 66 4s8 70-22 120c-30 50-90 52-146 48z"/>
-        </svg>
-        <img src="logo.png" alt="Rifal Withlove logo" width="605" height="506">
+
+      <div class="stage" aria-hidden="true">
+        <svg class="leaf leaf-a" viewBox="0 0 200 200"><path fill="#eef5f3" d="M14 190C4 112 40 30 122 12c40-9 68 4 68 4s9 74-23 124c-32 52-95 55-153 50z"/></svg>
+        <svg class="leaf leaf-b" viewBox="0 0 200 200"><path fill="#d5ebe6" d="M10 180C20 110 70 60 150 50c30-4 44 4 44 4S180 120 130 160C90 192 40 194 10 180z"/><path d="M20 176C60 130 110 90 180 60" stroke="#5fa8a0" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/></svg>
+        <svg class="leaf leaf-c" viewBox="0 0 200 200"><path fill="#5fa8a0" d="M20 180C10 110 50 40 130 20c34-8 56 0 56 0s6 70-26 116c-34 48-96 52-140 44z" opacity=".85"/></svg>
+        <div class="disc"><img src="logo.png" alt="" width="605" height="506"></div>
+        <svg class="heart" viewBox="0 0 32 32"><path fill="#4fb0c6" d="M16 28s-11-6.6-11-14.2C5 9.4 8.3 6 12.3 6c1.6 0 3 .7 3.7 1.9C16.7 6.7 18.1 6 19.7 6 23.7 6 27 9.4 27 13.8 27 21.4 16 28 16 28z"/></svg>
       </div>
     </div>
   </section>
 
+  <!-- Services -->
   <section class="services" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="head">
         <h2 id="services-title">What we'll help with</h2>
-        <p>Four kinds of support, each shaped around you. You can use one, or combine them.</p>
+        <p>Four kinds of support, each shaped around you. Use one, or combine them to suit your plan.</p>
       </div>
-      <ul class="service-list">
-        <li class="service">
-          <h3>Daily living</h3>
-          <p class="what">Help with everyday tasks, so you can stay independent and comfortable at home.</p>
-          <ul>
-            <li>Personal care and hygiene</li>
-            <li>Cooking and meals</li>
-            <li>Cleaning and household jobs</li>
-            <li>Building routines that work for you</li>
+      <div class="service-grid">
+        <article class="panel p1" id="daily">
+          <div>
+            <h3>Daily living</h3>
+            <p class="what">Help with everyday tasks, so you can stay independent and comfortable at home.</p>
+          </div>
+          <svg class="art" viewBox="0 0 160 150" aria-hidden="true">
+            <circle cx="80" cy="80" r="66" fill="#eef5f3"/>
+            <path d="M34 82 80 44l46 38v50H34z" fill="#fff" stroke="#123e5c" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M26 86 80 40l54 46" fill="none" stroke="#123e5c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="68" y="96" width="24" height="36" rx="3" fill="#1f6f8b"/>
+            <rect x="44" y="88" width="18" height="16" rx="2" fill="#f5d77a"/>
+            <rect x="98" y="88" width="18" height="16" rx="2" fill="#f5d77a"/>
+            <path d="M120 132c0-14 4-22 12-28-2 12 0 20-4 28z" fill="#5fa8a0"/>
+            <path d="M80 70c-6-6-14-1-9 6l9 8 9-8c5-7-3-12-9-6z" fill="#4fb0c6"/>
+          </svg>
+          <ul aria-label="Includes">
+            <li>Personal care</li><li>Cooking and meals</li><li>Household jobs</li><li>Daily routines</li>
           </ul>
-        </li>
-        <li class="service">
-          <h3>Community access</h3>
-          <p class="what">Get out and do the things you enjoy, with someone by your side.</p>
-          <ul>
-            <li>Social outings and hobbies</li>
-            <li>Groups, classes and events</li>
-            <li>Shopping and errands</li>
-            <li>Building friendships and confidence</li>
+        </article>
+
+        <article class="panel p2" id="community">
+          <div>
+            <h3>Community access</h3>
+            <p class="what">Get out and do the things you enjoy, with someone by your side.</p>
+          </div>
+          <svg class="art" viewBox="0 0 160 150" aria-hidden="true">
+            <circle cx="80" cy="80" r="66" fill="#fff" opacity=".7"/>
+            <rect x="112" y="70" width="6" height="62" rx="3" fill="#123e5c"/>
+            <circle cx="115" cy="60" r="24" fill="#5fa8a0"/>
+            <circle cx="102" cy="72" r="14" fill="#4a968e"/>
+            <circle cx="58" cy="62" r="11" fill="#123e5c"/>
+            <path d="M40 132c0-26 8-40 18-40s18 14 18 40z" fill="#1f6f8b"/>
+            <circle cx="88" cy="74" r="9" fill="#123e5c"/>
+            <path d="M74 132c0-20 6-32 14-32s14 12 14 32z" fill="#4fb0c6"/>
+            <path d="M74 106c-4 0-8 2-10 4" stroke="#123e5c" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M72 38c-5-5-12-1-8 5l8 7 8-7c4-6-3-10-8-5z" fill="#1f6f8b"/>
+            <path d="M26 132h108" stroke="#123e5c" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <ul aria-label="Includes">
+            <li>Outings and hobbies</li><li>Groups and events</li><li>Shopping and errands</li><li>Making friends</li>
           </ul>
-        </li>
-        <li class="service">
-          <h3>Transport</h3>
-          <p class="what">Safe, reliable rides to the places you need and want to go.</p>
-          <ul>
-            <li>Medical and therapy appointments</li>
-            <li>Work, study and day programs</li>
-            <li>Visiting family and friends</li>
-            <li>Community activities</li>
+        </article>
+
+        <article class="panel p3" id="transport">
+          <div>
+            <h3>Transport</h3>
+            <p class="what">Safe, reliable rides to the places you need and want to go.</p>
+          </div>
+          <svg class="art" viewBox="0 0 160 150" aria-hidden="true">
+            <circle cx="80" cy="80" r="66" fill="#fff"/>
+            <path d="M118 22c-12 0-20 9-20 19 0 14 20 32 20 32s20-18 20-32c0-10-8-19-20-19z" fill="#5fa8a0"/>
+            <circle cx="118" cy="41" r="7" fill="#fff"/>
+            <path d="M22 116v-16l10-22c2-4 6-6 10-6h50c4 0 8 2 10 6l12 22v16z" fill="#1f6f8b"/>
+            <path d="M40 80h22v18H32zM68 80h22l8 18H68z" fill="#d5ebe6"/>
+            <circle cx="46" cy="118" r="11" fill="#123e5c"/><circle cx="46" cy="118" r="4" fill="#fff"/>
+            <circle cx="98" cy="118" r="11" fill="#123e5c"/><circle cx="98" cy="118" r="4" fill="#fff"/>
+            <path d="M16 136h128" stroke="#123e5c" stroke-width="3" stroke-linecap="round" stroke-dasharray="14 10"/>
+          </svg>
+          <ul aria-label="Includes">
+            <li>Appointments</li><li>Work and study</li><li>Visiting family</li><li>Community activities</li>
           </ul>
-        </li>
-        <li class="service">
-          <h3>Accommodation and respite</h3>
-          <p class="what">A safe place to live or stay, with support when you need it.</p>
-          <ul>
-            <li>Supported Independent Living (SIL)</li>
-            <li>Short-term accommodation</li>
-            <li>Respite for you and your carers</li>
-            <li>Support available around the clock</li>
+        </article>
+
+        <article class="panel p4" id="accommodation">
+          <div>
+            <h3>Accommodation and respite</h3>
+            <p class="what">A safe place to live or stay, with support whenever you need it.</p>
+          </div>
+          <svg class="art" viewBox="0 0 160 150" aria-hidden="true">
+            <circle cx="80" cy="80" r="66" fill="#1f6f8b" opacity=".45"/>
+            <path d="M118 26a18 18 0 1 0 14 30 15 15 0 0 1-14-30z" fill="#f5d77a"/>
+            <circle cx="52" cy="34" r="2.5" fill="#fff"/><circle cx="76" cy="24" r="2" fill="#fff"/><circle cx="92" cy="44" r="2" fill="#fff"/>
+            <rect x="24" y="76" width="8" height="58" rx="4" fill="#fff"/>
+            <rect x="128" y="96" width="8" height="38" rx="4" fill="#fff"/>
+            <path d="M32 104h96v18H32z" fill="#d5ebe6"/>
+            <path d="M58 104V96c0-6 4-10 10-10h50c6 0 10 4 10 10v8z" fill="#4fb0c6"/>
+            <rect x="36" y="90" width="20" height="14" rx="7" fill="#fff"/>
+            <path d="M80 70c-5-5-12-1-8 5l8 7 8-7c4-6-3-10-8-5z" fill="#fff"/>
+          </svg>
+          <ul aria-label="Includes">
+            <li>Supported Independent Living (SIL)</li><li>Short-term stays</li><li>Respite for carers</li><li>24/7 support options</li>
           </ul>
-        </li>
-      </ul>
+        </article>
+      </div>
     </div>
   </section>
 
+  <!-- Promise -->
+  <section class="promise" aria-label="Our promise">
+    <svg class="bg-leaf" viewBox="0 0 200 200" aria-hidden="true"><path fill="#5fa8a0" d="M14 190C4 112 40 30 122 12c40-9 68 4 68 4s9 74-23 124c-32 52-95 55-153 50z"/></svg>
+    <div class="wrap">
+      <svg class="heart-big" viewBox="0 0 32 32" aria-hidden="true"><path fill="#4fb0c6" d="M16 28s-11-6.6-11-14.2C5 9.4 8.3 6 12.3 6c1.6 0 3 .7 3.7 1.9C16.7 6.7 18.1 6 19.7 6 23.7 6 27 9.4 27 13.8 27 21.4 16 28 16 28z"/></svg>
+      <blockquote>
+        <p>We treat every person we support the way we'd want our own family to be treated: with patience, respect, and genuine care.</p>
+        <footer>Our promise to you and your family</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Steps -->
   <section class="steps-section" id="how" aria-labelledby="how-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="how-title">How it will work</h2>
+        <h2 id="how-title">How it works</h2>
         <p>Getting started is simple, and you're in charge the whole way.</p>
       </div>
       <ol class="steps">
         <li>
           <h3>Get in touch</h3>
-          <p>Call or email us. A family member, carer or support coordinator can contact us for you.</p>
+          <p>Fill in the form below, call or email us. A family member, carer or support coordinator can contact us for you.</p>
         </li>
         <li>
           <h3>Meet and talk</h3>
-          <p>We'll get to know you, your goals and what matters to you.</p>
+          <p>We'll get to know you, your goals and what matters most to you.</p>
         </li>
         <li>
           <h3>Plan your support</h3>
@@ -260,26 +449,142 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="faq-title">Common questions</h2>
+        <p>Can't find what you're looking for? Get in touch and we'll be happy to help.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>When will Rifal Withlove open?</summary>
+          <p>We're getting ready now. Register your interest and we'll contact you as soon as we're able to start supporting new participants.</p>
+        </details>
+        <details>
+          <summary>Can I use my NDIS funding for your services?</summary>
+          <p>Our services are designed for NDIS participants. How you can use your funding depends on your plan and how it's managed. Get in touch and we'll talk it through with you.</p>
+        </details>
+        <details>
+          <summary>Can a family member or support coordinator contact you for me?</summary>
+          <p>Yes. Family members, carers, guardians and support coordinators are all welcome to contact us on your behalf.</p>
+        </details>
+        <details>
+          <summary>Do I have to commit to anything by registering interest?</summary>
+          <p>No. Registering your interest just means we'll contact you when we open. There's no cost and no commitment.</p>
+        </details>
+        <details>
+          <summary>Which areas will you cover?</summary>
+          <!-- TODO: replace with real service area -->
+          <p>[Your suburbs or region]. If you're nearby but not sure, ask us anyway.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <div>
-        <h2 id="contact-title">Talk to us about support</h2>
-        <p class="intro">We're not open yet, but we'd love to hear from you. Get in touch and we'll let you know as soon as we're ready to start.</p>
+        <div class="head" style="margin-bottom:0">
+          <h2 id="contact-title">Be the first to know when we open</h2>
+          <p>Register your interest and we'll be in touch. Prefer to talk? You can reach us directly too.</p>
+        </div>
+        <!-- TODO: replace the placeholders below with real contact details -->
+        <div class="details">
+          <div>
+            <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <span><span class="k">Email</span><br><strong>[your-email@example.com]</strong></span>
+          </div>
+          <div>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+            <span><span class="k">Phone</span><br><strong>[04XX XXX XXX]</strong></span>
+          </div>
+          <div>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+            <span><span class="k">Service area</span><br><strong>[Your suburbs or region]</strong></span>
+          </div>
+        </div>
       </div>
-      <!-- TODO: replace the placeholders below with real contact details -->
-      <dl class="details">
-        <div><dt>Email</dt><dd>[your-email@example.com]</dd></div>
-        <div><dt>Phone</dt><dd>[04XX XXX XXX]</dd></div>
-        <div><dt>Service area</dt><dd>[Your suburbs or region]</dd></div>
-      </dl>
+
+      <div class="form-card">
+        <h3>Register your interest</h3>
+        <p>It takes about a minute. We'll only use your details to contact you about our services.</p>
+        <form name="interest" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="company">
+          <input type="hidden" name="form-name" value="interest">
+          <p class="hidden-field"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-who">I am</label>
+              <select id="f-who" name="who">
+                <option>An NDIS participant</option>
+                <option>A family member or carer</option>
+                <option>A support coordinator</option>
+                <option>Someone else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone <span class="hint">(optional)</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <fieldset class="field full">
+              <legend>Services you're interested in</legend>
+              <div class="checks">
+                <label><input type="checkbox" name="services" value="Daily living">Daily living</label>
+                <label><input type="checkbox" name="services" value="Community access">Community access</label>
+                <label><input type="checkbox" name="services" value="Transport">Transport</label>
+                <label><input type="checkbox" name="services" value="Accommodation and respite">Accommodation and respite</label>
+              </div>
+            </fieldset>
+            <div class="field full">
+              <label for="f-msg">Anything you'd like us to know? <span class="hint">(optional)</span></label>
+              <textarea id="f-msg" name="message"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-main" type="submit">Register my interest</button>
+        </form>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; <span id="year">2026</span> Rifal Withlove</p>
-    <p>NDIS support services</p>
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand"><img src="icon.png" alt="" width="56" height="56"><span>Rifal Withlove</span></div>
+        <p>NDIS support services for daily living, community access, transport, and accommodation and respite. Opening soon.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#faq">Common questions</a></li>
+          <li><a href="#contact">Register interest</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li>[your-email@example.com]</li>
+          <li>[04XX XXX XXX]</li>
+          <li>[Your suburbs or region]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ack">
+      <p>We acknowledge the Traditional Custodians of the lands on which we live and work, and pay our respects to Elders past and present.</p>
+      <p>&copy; <span id="year">2026</span> Rifal Withlove</p>
+    </div>
   </div>
 </footer>
 
